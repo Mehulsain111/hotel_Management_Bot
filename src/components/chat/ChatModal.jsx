@@ -152,31 +152,31 @@ export default function ChatModal({ isOpen, onClose, initialPrompt, onClearIniti
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:justify-end sm:p-6 pointer-events-none">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:justify-end sm:p-4 md:p-6 pointer-events-none">
       {/* Mobile backdrop */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-midnight-950/60 backdrop-blur-sm sm:hidden pointer-events-auto transition-opacity"
+        className="fixed inset-0 bg-midnight-950/70 backdrop-blur-sm sm:hidden pointer-events-auto transition-opacity"
       />
 
-      {/* Floating Chat Window Overlay (Antigravity 3D Design) */}
-      <div className="pointer-events-auto relative w-full sm:w-[450px] h-[660px] max-h-[90vh] rounded-t-3xl sm:rounded-3xl bg-midnight-950/90 border border-gold-500/30 shadow-2xl shadow-gold-glow/20 backdrop-blur-2xl flex flex-col overflow-hidden z-10 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 sm:slide-in-from-right-4">
+      {/* Floating Chat Window Overlay (Fully Responsive Mobile-First Antigravity 3D Design) */}
+      <div className="pointer-events-auto relative w-full sm:w-[420px] md:w-[460px] h-[100dvh] sm:h-[660px] sm:max-h-[88vh] rounded-none sm:rounded-3xl bg-midnight-950/95 sm:bg-midnight-950/90 border-0 sm:border border-gold-500/30 shadow-2xl shadow-gold-glow/20 backdrop-blur-2xl flex flex-col overflow-hidden z-10 transition-all duration-300 animate-in fade-in slide-in-from-bottom-6 sm:slide-in-from-right-6">
         
         {/* ELEMENT 3: Top Bar with Title and Subtle Close/Minimize 'X' Button */}
-        <div className="px-5 py-3.5 border-b border-white/10 bg-midnight-950/90 flex items-center justify-between flex-shrink-0">
-          <div className="flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-500 p-[1px] shadow-gold-glow">
+        <div className="px-4 sm:px-5 py-3.5 border-b border-white/10 bg-midnight-950/95 flex items-center justify-between flex-shrink-0">
+          <div className="flex items-center space-x-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-500 p-[1px] shadow-gold-glow flex-shrink-0">
               <div className="w-full h-full rounded-[11px] bg-midnight-950 flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-gold-400" />
               </div>
             </div>
-            <div>
-              <h3 className="text-xs font-bold text-white tracking-wide">
+            <div className="min-w-0">
+              <h3 className="text-xs sm:text-sm font-bold text-white tracking-wide truncate">
                 Aura AI Concierge
               </h3>
               <p className="text-[10px] text-emerald-400 flex items-center space-x-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Live n8n Agent</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+                <span className="truncate">Live n8n Agent</span>
               </p>
             </div>
           </div>
@@ -186,14 +186,14 @@ export default function ChatModal({ isOpen, onClose, initialPrompt, onClearIniti
             type="button"
             onClick={onClose}
             aria-label="Close chat"
-            className="p-1.5 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+            className="p-2 sm:p-1.5 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer flex-shrink-0"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* ELEMENT 1: The Chat History Container (Displaying Messages, QR Widget & Digital Receipt) */}
-        <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+        <div className="flex-1 overflow-y-auto px-3 sm:px-4 py-3 space-y-2.5 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
           {messages.map((msg) => (
             <ChatMessage
               key={msg.id}
@@ -208,18 +208,18 @@ export default function ChatModal({ isOpen, onClose, initialPrompt, onClearIniti
         </div>
 
         {/* ELEMENT 2: Simple, Floating Text Input Field with a Single "Send" Icon */}
-        <div className="p-3.5 border-t border-white/10 bg-midnight-950/80 backdrop-blur-md flex-shrink-0">
+        <div className="p-3 sm:p-3.5 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] border-t border-white/10 bg-midnight-950/90 backdrop-blur-md flex-shrink-0">
           <form
             onSubmit={handleSubmit}
-            className="relative flex items-center rounded-2xl bg-midnight-900/90 border border-gold-500/30 p-1.5 shadow-glass-card focus-within:border-gold-500 focus-within:shadow-gold-glow transition-all"
+            className="relative flex items-center rounded-2xl bg-midnight-900/90 border border-gold-500/30 p-1 sm:p-1.5 shadow-glass-card focus-within:border-gold-500 focus-within:shadow-gold-glow transition-all"
           >
             <input
               ref={inputRef}
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Ask about rooms, availability, booking, or payments..."
-              className="flex-1 bg-transparent px-3 py-1.5 text-xs text-white placeholder-gray-400 focus:outline-none"
+              placeholder="Ask about rooms, booking, or payments..."
+              className="flex-1 min-w-0 bg-transparent px-3 py-1.5 text-base sm:text-xs text-white placeholder-gray-400 focus:outline-none"
             />
 
             {/* Single Send Icon Button */}

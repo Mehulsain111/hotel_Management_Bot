@@ -22,19 +22,19 @@ export default function Navbar({ onOpenChat }) {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
         {/* Brand Logo & Monogram */}
-        <div className="flex items-center space-x-3 cursor-pointer group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 via-amber-500 to-amber-700 p-[1.5px] shadow-gold-glow group-hover:scale-105 transition-transform">
-            <div className="w-full h-full rounded-[10px] bg-midnight-950 flex items-center justify-center font-serif text-lg font-bold text-gold-400">
+        <div className="flex items-center space-x-2.5 sm:space-x-3 cursor-pointer group">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-gold-400 via-amber-500 to-amber-700 p-[1.5px] shadow-gold-glow group-hover:scale-105 transition-transform flex-shrink-0">
+            <div className="w-full h-full rounded-[10px] bg-midnight-950 flex items-center justify-center font-serif text-base sm:text-lg font-bold text-gold-400">
               A
             </div>
           </div>
           <div>
-            <span className="font-serif tracking-[0.25em] text-sm md:text-base font-bold gold-gradient-text block leading-tight">
+            <span className="font-serif tracking-[0.2em] sm:tracking-[0.25em] text-xs sm:text-sm md:text-base font-bold gold-gradient-text block leading-tight">
               AURA GRAND
             </span>
-            <span className="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-medium block">
+            <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.18em] sm:tracking-[0.3em] text-gray-400 font-medium block truncate">
               Dynamic Agent Hospitality
             </span>
           </div>
